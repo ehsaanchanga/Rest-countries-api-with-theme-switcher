@@ -54,7 +54,8 @@ async function getCountries(query: string, limit = 50, getRest = false) {
           countriesGrid!.innerHTML += countryStructure(country);
         });
         countries = countriesGrid!.querySelectorAll('.country');
-
+        debugger;
+        moreDetails(countries as NodeListOf<HTMLElement>);
         controlLoader(); // Close
       } else {
         notifications(countriesGrid);
@@ -99,6 +100,17 @@ function getCountriesBySearch() {
 function selectedForDetails(id: string, destination: any) {
   sessionStorage.setItem('id', id);
   window.location = destination;
+}
+
+function moreDetails(array: NodeListOf<HTMLElement>) {
+  array.forEach((item) => {
+    item.addEventListener('click', () => {
+      if (item.dataset.countryName !== undefined) {
+        let countryName = item.dataset.countryName.toLocaleLowerCase().trim();
+        selectedForDetails(countryName, 'details.html');
+      }
+    });
+  });
 }
 
 // Control Drop Down Menu

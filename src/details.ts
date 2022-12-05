@@ -54,7 +54,7 @@ function countryDetailsStructure(data: Country) {
             ${data.borders
               .map(
                 (border) => `
-                <li data-border=${border} onclick="moreDetails(this)">
+                <li data-border=${border} onclick="moreDetailes(this)">
                 <button
                   type="button"
                   class="button btn"
@@ -134,7 +134,7 @@ async function getBorderDetails(value: string) {
   }
 }
 
-function moreDetails(el: { dataset: any }) {
+function moreDetailes(el: { dataset: any }) {
   controlLoader('open'); // Open
   let countryName = el.dataset.border.toLocaleLowerCase().trim();
   getBorderDetails(countryName);

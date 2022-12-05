@@ -47,7 +47,7 @@ function countryDetailsStructure(data) {
         <ul>
             ${data.borders
             .map((border) => `
-                <li data-border=${border} onclick="moreDetails(this)">
+                <li data-border=${border} onclick="moreDetailes(this)">
                 <button
                   type="button"
                   class="button btn"
@@ -120,7 +120,7 @@ function getBorderDetails(value) {
         }
     });
 }
-function moreDetails(el) {
+function moreDetailes(el) {
     controlLoader('open'); // Open
     let countryName = el.dataset.border.toLocaleLowerCase().trim();
     getBorderDetails(countryName);
